@@ -1,15 +1,13 @@
 import React from "react";
 
-const Input = ({ name, label, value, error, onChange }) => {
+const Input = ({ name, label,  error , ...rest }) => {
   return (
     <div className="form-group">
       <label htmlFor={name}>{label}</label>
       <input
         id={name}
         name={name}
-        value={value}
-        onChange={onChange}
-        type="text"
+        {...rest}
         className="form-control"
       />
       {error && <div className="alert alert-danger">{error}</div>}
@@ -18,3 +16,4 @@ const Input = ({ name, label, value, error, onChange }) => {
 };
 
 export default Input;
+ // {...rest} not include name={name} ^^ .
